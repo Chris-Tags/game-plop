@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plop Game</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/index.js" defer></script>
+</head>
+
+<body>
+    <main class="game">
+        <!-- Conteneur des bulles -->
+        <div class="game__bubbles"></div>
+
+        <!-- En-tête avec score et temps -->
+        <header class="game__header">
+            <h1 class="game__title">Plop Game</h1>
+            <div class="game__score">
+                Score : <span class="game__counter">0</span>
+            </div>
+            <div class="game__time">
+                Temps : <span class="game__countdown"></span>
+            </div>
+        </header>
+
+        <!-- Écran de fin de partie -->
+        <div class="game-over">
+            <p class="game-over__restart">RECOMMENCE</p>
+            <p class="game-over__text">
+                Votre score : <span class="game-over__counter"></span>
+            </p>
+        </div>
+    </main>
+
+    <!-- Curseur personnalisé (desktop) -->
+    <div class="cursor"></div>
+</body>
+
+</html>

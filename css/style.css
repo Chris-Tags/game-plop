@@ -1,0 +1,167 @@
+html,
+body {
+  overflow: hidden;
+  margin: 0;
+  cursor: none;
+  user-select: none;
+}
+
+/* =========================
+   Game (main)
+   ========================= */
+.game {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Zone des bulles */
+.game__bubbles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* =========================
+   Header du jeu
+   ========================= */
+.game__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  min-height: 120px;
+  font-size: 2rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  background-color: beige;
+  border-bottom: 1rem solid rgba(199, 199, 166, 0.5);
+}
+
+/* Titre */
+.game__title {
+  margin: 0;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+/* Score */
+.game__score {
+  color: rgba(28, 139, 102, 0.74);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+}
+
+/* Temps */
+.game__time {
+  color: rgb(124, 124, 124);
+}
+
+/* =========================
+   Game over
+   ========================= */
+.game-over {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(236, 236, 236);
+  font-size: 2.2rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.game-over__restart {
+  cursor: pointer;
+  font-size: 4rem;
+  color: rgb(247, 39, 153);
+  animation: big 1s infinite;
+}
+
+.game-over__text {
+  color: rgb(114, 114, 114);
+}
+
+/* =========================
+   Curseur personnalisé
+   ========================= */
+.cursor {
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  background-color: rgb(43, 43, 43);
+  border-radius: 50%;
+  z-index: 10;
+  pointer-events: none;
+  cursor: none;
+}
+
+.cursor::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% + 2rem);
+  height: calc(100% + 2rem);
+  border-radius: 50%;
+  border: 0.5rem dashed rgb(43, 43, 43);
+  transform: translate(-50%, -50%);
+}
+
+/* =========================
+   Bulles
+   ========================= */
+.bubble {
+  position: absolute;
+  width: var(--bubbleSize);
+  height: var(--bubbleSize);
+  border-radius: 50%;
+  opacity: 0.5;
+  background-color: rgb(var(--bubbleColorRed), 122, 255);
+  cursor: none;
+}
+
+/* =========================
+   Animations
+   ========================= */
+@keyframes bubbleMove {
+  0% {
+    transform: translateY(95vh);
+  }
+  100% {
+    transform: translateY(-200vh);
+  }
+}
+
+@keyframes big {
+  0%,
+  100% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* =========================
+   Media Query
+   ========================= */
+@media (hover: none) and (pointer: coarse) {
+  .cursor {
+    display: none !important;
+  }
+
+  html,
+  body {
+    cursor: auto;
+  }
+}
